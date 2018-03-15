@@ -1,0 +1,14 @@
+extend type Mutation{
+    authLocal(user:AuthLocalInput!, isSignup:Boolean):User!
+    authFB(code:String!):User!
+    authGoogle(code:String!):User!
+    logout:Boolean
+}
+
+input AuthLocalInput {
+    email:String!
+    password:String!
+    firstName:String
+    lastName:String
+    fbId: Float
+}

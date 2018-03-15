@@ -1,0 +1,47 @@
+# Machine creation
+
+1. create a machine with ubuntu 16.04
+2. update .profile file
+3. add config directory
+4. add test.json file to config directory
+5. paste test.json contents to creared file
+
+# Update os
+
+6. sudo apt update 
+7. sudo apt upgrade 
+
+# Install node 
+
+9. curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+10. sudo apt-get install -y nodejs
+11. sudo apt update
+
+# Install mongo
+
+12. sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+13. echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+14. sudo apt-get update
+15. sudo apt-get install -y mongodb-org
+16. sudo systemctl start mongod
+17. sudo systemctl status mongod
+18. sudo systemctl enable mongod
+19. in mongo config file change bindIp from 127.0.0.1 to 0.0.0.0
+
+# Install git
+
+20. sudo apt-get install git
+21. git clone <project link form git/bitbucket>
+
+# Install redis
+
+22. sudo apt-get install redis-server
+
+# Update os
+
+23. sudo apt-get update
+
+# Install global packages
+
+24. sudo npm install -g npm-run
+25. sudo npm install -g forever

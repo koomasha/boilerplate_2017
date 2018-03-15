@@ -1,0 +1,27 @@
+extend type Query{
+    user(id:ID!):User
+    myUser:User
+}
+
+extend type Mutation{
+    userUpdate(id: ID!, user:UserInput!):User!
+}
+
+type User{
+    id:ID!
+    email:String!
+    password:String!
+    firstName:String!
+    lastName:String!
+    startWeekOnMonday:Boolean!
+    defaultView:String!
+}
+
+input UserInput{
+    id:ID
+    email:String
+    firstName:String
+    lastName:String
+    startWeekOnMonday:Boolean
+    defaultView:String
+}

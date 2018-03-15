@@ -1,0 +1,293 @@
+$purple: #7383bf;
+$light-grey: #f3f3f3;
+$grey: #424a60;
+$white: #ffffff;
+$red: #d75a4a;
+$yellow: #ebba16;
+$green: #43b05c;
+
+
+$error-background: rgba(215, 90, 74, 0.49);
+$error-text: #933b3b;
+$border-color: rgba(165, 167, 168, 0.49019607843137253);
+$overlay-shadow: rgba(70, 77, 105, 0.9);
+$datepicker-container: #ecf6fb;
+$datepicker-border: #c5cfda;
+
+
+$border-width: 1px;
+$border-radius: 3px;
+$padding: 5px;
+$margin: 3px;
+$grid-gap: 5px;
+
+$font-size-l: 14px;
+$font-size-m: 12px;
+
+$icon-width-l: 25px;
+$icon-width-m: 20px;
+$icon-width-s: 15px;
+$icon-width-xs: 10px;
+
+$icon-l-wrapper-width: 40px;
+$icon-xs-wrapper-width: 15px;
+
+$button-width: 80px;
+$button-wrapper-width: 90px;
+
+$navigation-height: 64px;
+$logout-link-width: 100px;
+$logo-img-max: 400px;
+$number-of-social-apps: 2;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: $font-size-l;
+    font-family: Georgia;
+    color: $grey;
+}
+html {
+    background: $light-grey;
+    background-size: cover;
+}
+body{
+    padding: $padding;
+}
+input, textarea, button {
+    padding: $padding $padding;
+    margin-top: $margin;
+    text-decoration: none;
+    font-weight: bold;
+}
+.invalid{
+    border: $border-width solid $red !important;
+    background: $error-background !important;
+}
+button {
+    color: white;
+    width: $button-width;
+    &.save-btn {
+        background: $green;
+    }
+    &.cancel-btn {
+        background: $yellow;
+    }
+    &.delete-btn {
+        background: $red;
+    }
+    &.info-btn {
+        background: $purple;
+    }
+    &:hover {
+        color: $yellow;
+        background: white;
+    }
+}
+.border {
+    border-radius: $border-radius;
+    border-style: hidden;
+    border: $border-width solid $border-color;
+}
+.title{
+    font-size: 1.2em;
+}
+.link {
+    color: $grey;
+    text-decoration: underline;
+    font-weight: bold;
+    line-height: 1.4em;
+    cursor: pointer;
+    &:hover{
+        color: $red;
+    }
+}
+.icon{
+    width: $icon-width-l;
+    margin: $margin;
+    -webkit-transition: -webkit-transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+    &.close{
+        width: $icon-width-xs;
+        justify-self: end;
+    }
+    &:hover{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.clickable {
+    cursor: pointer;
+}
+.overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    &.overlay-shadow {
+        background:$overlay-shadow;
+    }
+}
+.root {
+    .error-box {
+        display: grid;
+        border-radius: $border-radius;
+        background: $error-background;
+        margin-top: $margin;
+        padding: $padding;
+        .error-text {
+            color: $error-text;
+        }  
+    }
+    .datepicker {
+        display: block;
+        position: absolute;
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            background: $datepicker-container;
+            padding: $padding;
+            border-radius: $border-radius;
+            .header {
+                display: grid;
+                grid-template-columns: $icon-l-wrapper-width 1fr $icon-l-wrapper-width;
+                justify-items: center;
+                align-items: center;
+                height: max-content;
+                padding-bottom: $padding;
+            }
+            .content {
+                display: grid;
+                grid-template-rows: auto 1fr;
+                .week-header {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    grid-column-gap: $grid-gap;
+                }
+                .dates {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    grid-column-gap: $grid-gap;
+                    .date{
+                        display: grid;
+                        justify-content: center;
+                        border: $border-width solid $datepicker-border;
+                        border-radius: $border-radius;
+                        margin: $margin; 
+                        padding: $padding;
+                        transition: all 0.05s ease;
+                        &:hover {
+                            transform: scale(1.25);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .navigation {
+        display: grid;
+        grid-template-columns: $icon-l-wrapper-width 1fr $logout-link-width;;
+        align-items: center;
+        background:$purple;
+        border-radius: $border-radius;
+        justify-items: center;
+        grid-gap: $grid-gap;
+        height: $navigation-height;
+        .header {
+            justify-self: start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-gap: $grid-gap;
+            word-break: break-word;
+            .title {
+                color: $white;
+            }
+        }
+    }
+    .login {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        .container-wrapper {
+            grid-column: 2/3;
+            padding: $padding;
+            margin: $margin;
+            .container {
+                display: grid;
+                padding: $padding;
+                margin: $margin;
+                .logo-img {
+                    display: grid;
+                    justify-content: center;
+                    img {
+                        max-width: $logo-img-max;
+                        max-height: $logo-img-max;
+                    }
+                }
+                .login-form, .signup-form {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-gap: $grid-gap;
+                    padding: $padding;
+                    margin: $margin;
+                    button, input {
+                        width: 100%;
+                    }
+                    button {
+                        grid-column: 1/3;   
+                    }
+                }
+                .social {
+                    display: grid;
+                    justify-content: center;
+                    .social-login {
+                        display: grid;
+                        grid-template-columns: repeat($number-of-social-apps, $icon-l-wrapper-width);
+                        grid-gap: $grid-gap;
+                        padding: $padding;
+                        margin: $margin;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) {
+
+}
+@media screen and (min-width: 1200px) {
+
+}
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width:600px){
+    * {
+        max-width: 600px;
+        font-size: $font-size-m;
+    }
+    .icon {
+        width: $icon-width-m;
+    }
+    .root .login {
+        grid-template-columns: 20px 1fr 20px;
+    }
+}
+@media screen and (max-width:400px) {
+    .root {
+        .login {
+            * {
+                max-width: 300px;
+                input {
+                    max-width: 140px;
+                }
+            }
+        }
+    }
+}

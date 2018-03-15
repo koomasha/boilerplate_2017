@@ -1,0 +1,40 @@
+{
+  "PROJECT_NAME": {
+    "dbConfig": {
+      "host": "localhost",
+      "port": 27017,
+      "dbName": "DB_NAME",
+      "fullPath": "mongodb://localhost:27017/{{DB_NAME}}"
+    },
+    "serverConfig": {
+      "host": "localhost",
+      "port": 3000,
+      "protocol": "http",
+      "whitelist": ["http://localhost:8080"],
+      "sessionSecret": "token",
+      "sessionTTL": 86400,
+      "redisPort": 6379,
+      "redisHost": "127.0.0.1",
+      "socialLoginGenericPassword": "{{SOME_PASSWORD}}",
+      "fbAppId": "{{FB_APP_ID}}",
+      "fbAppSecret": "{{FB_APP_SECRET}}",
+      "redirectUrl": "http://localhost:8080/",
+      "fbAccessTokenReqUrl": "https://graph.facebook.com/v2.11/oauth/access_token?client_id={{FB_APP_ID}}&redirect_uri=http://localhost:8080/&client_secret={{FB_APP_SECRET}}&code=",
+      "fbGetUserProfileUrl": "https://graph.facebook.com/v2.11/me?fields=email,first_name,last_name&access_token=",
+      "googleAppId": "{{GOOGLE_APP_ID}}",
+      "googleAppSecret": "{{GOOGLE_APP_SECRET}}",
+      "googleAccessTokenReqUrl": "https://www.googleapis.com/oauth2/v4/token?redirect_uri=http%3A%2F%2Flocalhost%3A8080&client_id={{GOOGLE_APP_ID}}&client_secret={{GOOGLE_APP_SECRET}}&grant_type=authorization_code&code=",
+      "googleGetUserProfileUrl": "https://www.googleapis.com/oauth2/v3/userinfo?access_token="
+    },
+    "webClientConfig": {
+      "host": "localhost",
+      "port": 8080,
+      "protocol": "http",
+      "apiEndpoint": "http://localhost:3000/api",
+      "stateFBLogin": "fbLogin",
+      "fbLoginUrl": "https://www.facebook.com/v2.11/dialog/oauth?scope=public_profile,email&client_id={{FB_APP_ID}}&redirect_uri=http://localhost:8080/&state=fbLogin",
+      "googleLoginUrl": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A8080&client_id={{GOOGLE_APP_ID}}&response_type=code&scope=openid%20email&state=googleLogin",
+      "stateGoogleLogin": "googleLogin"
+    }
+  }
+}
